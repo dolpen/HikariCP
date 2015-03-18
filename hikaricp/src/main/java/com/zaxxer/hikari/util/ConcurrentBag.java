@@ -140,12 +140,11 @@ public final class ConcurrentBag<T extends BagEntry>
             listener.addBagItem();
          }
 
-         synchronizer.tryAcquireSharedNanos(startSeq, timeout);
+         //synchronizer.tryAcquireSharedNanos(startSeq, timeout);
 
          timeout -= (System.nanoTime() - startScan);
       }
-      while (timeout > 0L);
-
+      while (timeout > 0L && false);
       return null;
    }
 
